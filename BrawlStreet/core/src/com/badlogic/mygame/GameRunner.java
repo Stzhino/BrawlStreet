@@ -4,7 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameRunner extends Game {
-	private SpriteBatch batch;
+	SpriteBatch batch;
 	
 	@Override
 	public void create () {

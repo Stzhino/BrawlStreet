@@ -12,7 +12,6 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class TitleScreen extends ScreenAdapter {
     private GameRunner game;
     private OrthographicCamera camera;
-    private SpriteBatch batch;
     private Texture img;
 
     public TitleScreen(GameRunner game){
@@ -23,28 +22,27 @@ public class TitleScreen extends ScreenAdapter {
     }
 
     public void show(){
-//        Gdx.input.setInputProcessor(new InputAdapter(){
-//            @Override
-//            public boolean touchDown(int screenX, int screenY, int pointer, int button){
-//            }
-//        }
+        Gdx.input.setInputProcessor(new InputAdapter() {
+            @Override
+            public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+                if (screenX < 100) {
+
+                }
+                return true;
+            }
+        });
     }
 
-    public void render(){
-        ScreenUtils.clear(1, 0, 0, 1);
+    public void render(float delta){
         camera.update();
-		batch.setProjectionMatrix(camera.combined);
-		batch.begin();
-		batch.draw(img,0,0, camera.viewportWidth, camera.viewportHeight);
-		batch.end();
+		game.batch.setProjectionMatrix(camera.combined);
+		game.batch.begin();
+		game.batch.draw(img,0,0, camera.viewportWidth, camera.viewportHeight);
+		game.batch.end();
     }
 
     public void hide(){
         Gdx.input.setInputProcessor(null);
-    }
-
-    public void dispose(){
-        batch.dispose();
         img.dispose();
     }
 }
