@@ -38,6 +38,9 @@ public class TitleScreen extends ScreenAdapter {
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
 		game.batch.draw(img,0,0, camera.viewportWidth, camera.viewportHeight);
+        game.font.draw(game.batch, "Play", Gdx.graphics.getWidth() * .5f, Gdx.graphics.getHeight() * .5f);
+        game.font.draw(game.batch, "Settings", Gdx.graphics.getWidth() * .5f, Gdx.graphics.getHeight() * .35f);
+        game.font.draw(game.batch, "Rules", Gdx.graphics.getWidth() * .5f, Gdx.graphics.getHeight() * .2f);
 		game.batch.end();
     }
 
