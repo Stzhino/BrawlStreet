@@ -1,0 +1,68 @@
+PSR.png
+size: 828, 288
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+play
+  rotate: false
+  xy: 0, 0
+  size: 202, 96
+  orig: 202, 96
+  offset: 0, 0
+  index: -1
+play2
+  rotate: false
+  xy: 202, 0
+  size: 202, 96
+  orig: 202, 96
+  offset: 0, 0
+  index: -1
+play3
+  rotate: false
+  xy: 404, 0
+  size: 202, 96
+  orig: 202, 96
+  offset: 0, 0
+  index: -1
+rules
+  rotate: false
+  xy: 606, 0
+  size: 222, 96
+  orig: 222, 96
+  offset: 0, 0
+  index: -1
+rules2
+  rotate: false
+  xy: 0, 96
+  size: 222, 96
+  orig: 222, 96
+  offset: 0, 0
+  index: -1
+rules3
+  rotate: false
+  xy: 222, 96
+  size: 222, 96
+  orig: 222, 96
+  offset: 0, 0
+  index: -1
+settings
+  rotate: false
+  xy: 444, 96
+  size: 320, 96
+  orig: 320, 96
+  offset: 0, 0
+  index: -1
+settings2
+  rotate: false
+  xy: 0, 192
+  size: 320, 96
+  orig: 320, 96
+  offset: 0, 0
+  index: -1
+settings3
+  rotate: false
+  xy: 320, 192
+  size: 320, 96
+  orig: 320, 96
+  offset: 0, 0
+  index: -1
