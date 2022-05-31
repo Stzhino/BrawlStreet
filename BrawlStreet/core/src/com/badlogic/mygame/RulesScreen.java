@@ -4,13 +4,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 public class RulesScreen extends ScreenAdapter {
     private GameRunner game;
     private OrthographicCamera camera;
-    private TextButton back;
+    private TextButton backButton;
     private TextButton.TextButtonStyle backStyle;
     private Stage stage;
     private Texture img;
@@ -23,11 +25,21 @@ public class RulesScreen extends ScreenAdapter {
         Gdx.input.setInputProcessor(stage);
         backStyle = new TextButton.TextButtonStyle();
         backStyle.font = game.font;
-        back = new TextButton("Back", backStyle);
-        stage.addActor(back);
+        backButton = new TextButton("Back", backStyle);
+        backButton.setPosition(Gdx.graphics.getWidth()*.1f, Gdx.graphics.getHeight()*.9f);
+        stage.addActor(backButton);
         img = new Texture("rules.png");
     }
 
+    public void show(){
+        backButton.addListener(new ChangeListener() {
+            @Override
+            public void changed (ChangeEvent event, Actor actor) {
+                System.out.println("BackButton Pressed");
+                game.setScreen(new TitleScreen(game));
+            }
+        });
+    }
     public void render(float delta){
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);

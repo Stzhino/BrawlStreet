@@ -38,26 +38,23 @@ public class TitleScreen extends ScreenAdapter {
         buttonStyle = new TextButton.TextButtonStyle();
         buttonStyle.up = skin.getDrawable("play");
         buttonStyle.down = skin.getDrawable("play2");
-        buttonStyle.checked = skin.getDrawable("play3");
         buttonStyle.font = game.font;
         buttonStyle2 = new TextButton.TextButtonStyle();
         buttonStyle2.up = skin.getDrawable("settings");
         buttonStyle2.down = skin.getDrawable("settings2");
-        buttonStyle2.checked = skin.getDrawable("settings3");
         buttonStyle2.font = game.font;
         buttonStyle3 = new TextButton.TextButtonStyle();
         buttonStyle3.up = skin.getDrawable("rules");
         buttonStyle3.down = skin.getDrawable("rules2");
-        buttonStyle3.checked = skin.getDrawable("rules3");
         buttonStyle3.font = game.font;
         button = new TextButton("", buttonStyle);
-        button.setPosition(Gdx.graphics.getWidth() * .4f, Gdx.graphics.getHeight()*.4f);
+        button.setPosition(Gdx.graphics.getWidth() * .43f, Gdx.graphics.getHeight()*.4f);
         stage.addActor(button);
         button2 = new TextButton("", buttonStyle2);
         button2.setPosition(Gdx.graphics.getWidth() * .345f, Gdx.graphics.getHeight()*.25f);
         stage.addActor(button2);
         button3 = new TextButton("", buttonStyle3);
-        button3.setPosition(Gdx.graphics.getWidth() * .4f, Gdx.graphics.getHeight()*.1f);
+        button3.setPosition(Gdx.graphics.getWidth() * .41f, Gdx.graphics.getHeight()*.1f);
         stage.addActor(button3);
     }
 
@@ -93,7 +90,6 @@ public class TitleScreen extends ScreenAdapter {
     }
 
     public void hide(){
-        Gdx.input.setInputProcessor(null);
         img.dispose();
         textureAtlas.dispose();
     }
