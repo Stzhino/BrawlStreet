@@ -78,6 +78,7 @@ public class TitleScreen extends ScreenAdapter {
             @Override
             public void changed (ChangeEvent event, Actor actor) {
                 System.out.println("Button3 Pressed");
+                game.setScreen(new RulesScreen(game));
             }
         });
     }
