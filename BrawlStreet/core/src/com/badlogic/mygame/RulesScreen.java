@@ -4,8 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
@@ -16,6 +18,8 @@ public class RulesScreen extends ScreenAdapter {
     private TextButton.TextButtonStyle backStyle;
     private Stage stage;
     private Texture img;
+    private Skin skin;
+    private TextureAtlas backAtlas;
 
     public RulesScreen(GameRunner game){
         this.game = game;
@@ -23,10 +27,15 @@ public class RulesScreen extends ScreenAdapter {
         camera.setToOrtho(false, 1000, 600);
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
+        backAtlas = new TextureAtlas("BackButton.txt");
+        skin = new Skin();
+        skin.addRegions(backAtlas);
         backStyle = new TextButton.TextButtonStyle();
+        backStyle.down = skin.getDrawable("backagain");
+        backStyle.up = skin.getDrawable("back");
         backStyle.font = game.font;
-        backButton = new TextButton("Back", backStyle);
-        backButton.setPosition(Gdx.graphics.getWidth()*.1f, Gdx.graphics.getHeight()*.9f);
+        backButton = new TextButton("", backStyle);
+        backButton.setPosition(Gdx.graphics.getWidth()*.025f, Gdx.graphics.getHeight()*.89f);
         stage.addActor(backButton);
         img = new Texture("rules.png");
     }
