@@ -35,9 +35,9 @@ public class RulesScreen extends ScreenAdapter {
         backStyle.up = skin.getDrawable("back");
         backStyle.font = game.font;
         backButton = new TextButton("", backStyle);
-        backButton.setPosition(Gdx.graphics.getWidth()*.025f, Gdx.graphics.getHeight()*.89f);
+        backButton.setPosition(Gdx.graphics.getWidth()*.005f, Gdx.graphics.getHeight()*.89f);
         stage.addActor(backButton);
-        img = new Texture("rules.png");
+        img = new Texture("tutorial.png");
     }
 
     public void show(){
