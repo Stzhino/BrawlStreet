@@ -11,10 +11,13 @@ public class SettingsScreen extends ScreenAdapter {
     private Stage stage;
     private TextButton soundUp;
     private TextButton soundDown;
+    private TextButton backButton;
     private TextButton.TextButtonStyle up;
     private TextButton.TextButtonStyle down;
+    private TextButton.TextButtonStyle backStyle;
     public SettingsScreen(GameRunner game){
         this.game = game;
+
     }
 
     public void render(float delta){
