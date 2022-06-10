@@ -1,12 +1,15 @@
 package com.badlogic.mygame;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class SettingsScreen extends ScreenAdapter {
     private GameRunner game;
+    private OrthographicCamera camera;
     private Texture musicScreen;
     private Stage stage;
     private TextButton soundUp;
@@ -17,6 +20,8 @@ public class SettingsScreen extends ScreenAdapter {
     private TextButton.TextButtonStyle backStyle;
     public SettingsScreen(GameRunner game){
         this.game = game;
+        stage = new Stage();
+        Gdx.input.setInputProcessor(stage);
 
     }
 
