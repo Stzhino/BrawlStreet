@@ -1,0 +1,33 @@
+musicButtons.png
+size: 400, 100
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+minus1
+  rotate: false
+  xy: 0, 0
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+minus2
+  rotate: false
+  xy: 100, 0
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+plus1
+  rotate: false
+  xy: 200, 0
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+plus2
+  rotate: false
+  xy: 300, 0
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1

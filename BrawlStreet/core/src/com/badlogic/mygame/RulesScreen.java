@@ -39,7 +39,6 @@ public class RulesScreen extends ScreenAdapter {
         stage.addActor(backButton);
         img = new Texture("tutorial.png");
     }
-
     public void show(){
         backButton.addListener(new ChangeListener() {
             @Override
@@ -60,5 +59,6 @@ public class RulesScreen extends ScreenAdapter {
 
     public void hide(){
         img.dispose();
+        backAtlas.dispose();
     }
 }

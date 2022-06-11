@@ -5,8 +5,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameRunner extends Game {
-	SpriteBatch batch;
-	BitmapFont font;
+	protected SpriteBatch batch;
+	protected BitmapFont font;
+	private static double volume = 5;
 	
 	@Override
 	public void create () {
@@ -20,5 +21,14 @@ public class GameRunner extends Game {
 	@Override
 	public void dispose () {
 		batch.dispose();
+	}
+	public static void increase(){
+		volume++;
+	}
+	public static void decrease(){
+		volume--;
+	}
+	public static double getVolume(){
+		return volume/10;
 	}
 }
