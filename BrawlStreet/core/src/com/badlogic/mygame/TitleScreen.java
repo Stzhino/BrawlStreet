@@ -5,6 +5,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -24,6 +27,8 @@ public class TitleScreen extends ScreenAdapter {
     private Stage stage;
     private Skin skin;
     private TextureAtlas textureAtlas;
+    private World world;
+    private Box2DDebugRenderer b2dr;
 
     public TitleScreen(GameRunner game){
         this.game = game;
@@ -56,6 +61,8 @@ public class TitleScreen extends ScreenAdapter {
         button3 = new TextButton("", buttonStyle3);
         button3.setPosition(Gdx.graphics.getWidth() * .41f, Gdx.graphics.getHeight()*.1f);
         stage.addActor(button3);
+//        world = new World(new Vector2(0,0), true);
+//        b2dr = new Box2DDebugRenderer();
     }
 
     public void show(){

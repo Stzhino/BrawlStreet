@@ -1,6 +1,7 @@
 package com.badlogic.mygame;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -14,7 +15,7 @@ public class GameRunner extends Game {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		font.getData().setScale(2f);
-		font.setColor(255,178,0f, 1);
+		font.setColor(Color.BLACK);
 		setScreen(new TitleScreen(this));
 	}
 	

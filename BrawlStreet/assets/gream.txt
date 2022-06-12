@@ -1,96 +1,96 @@
-greamAtlas.png
-size: 1800, 1374
+gream.png
+size: 1000, 1200
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 block
   rotate: false
   xy: 0, 0
-  size: 300, 600
-  orig: 300, 600
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 jump1
   rotate: false
-  xy: 300, 0
-  size: 300, 600
-  orig: 300, 600
+  xy: 200, 0
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 jump2
   rotate: false
-  xy: 600, 0
-  size: 300, 600
-  orig: 300, 600
+  xy: 400, 0
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 kick1
   rotate: false
-  xy: 900, 0
-  size: 300, 600
-  orig: 300, 600
+  xy: 600, 0
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 kick2
   rotate: false
-  xy: 1200, 0
-  size: 300, 600
-  orig: 300, 600
+  xy: 800, 0
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 passive1
   rotate: false
-  xy: 1500, 0
-  size: 300, 600
-  orig: 300, 600
+  xy: 0, 400
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 passive2
   rotate: false
-  xy: 0, 600
-  size: 300, 600
-  orig: 300, 600
+  xy: 200, 400
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 punch1
   rotate: false
-  xy: 300, 600
-  size: 300, 600
-  orig: 300, 600
+  xy: 400, 400
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 punch2
   rotate: false
-  xy: 600, 600
-  size: 300, 600
-  orig: 300, 600
+  xy: 600, 400
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 punch3
   rotate: false
-  xy: 900, 600
-  size: 300, 600
-  orig: 300, 600
+  xy: 800, 400
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 shuffle
   rotate: false
-  xy: 1200, 600
-  size: 300, 600
-  orig: 300, 600
-  offset: 0, 0
-  index: -1
-special bullet
-  rotate: false
-  xy: 0, 1200
-  size: 394, 174
-  orig: 394, 174
+  xy: 0, 800
+  size: 200, 400
+  orig: 200, 400
   offset: 0, 0
   index: -1
 special
   rotate: false
-  xy: 1500, 600
-  size: 300, 600
-  orig: 300, 600
+  xy: 200, 800
+  size: 200, 400
+  orig: 200, 400
+  offset: 0, 0
+  index: -1
+specialboosh
+  rotate: false
+  xy: 400, 800
+  size: 400, 200
+  orig: 400, 200
   offset: 0, 0
   index: -1
