@@ -15,7 +15,7 @@ public class GameRunner extends Game {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		font.getData().setScale(2f);
-		font.setColor(Color.BLACK);
+		font.setColor(Color.WHITE);
 		setScreen(new TitleScreen(this));
 	}
 	

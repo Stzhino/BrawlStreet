@@ -132,7 +132,7 @@ public class SettingsScreen extends ScreenAdapter {
             @Override
             public void changed(ChangeEvent event, Actor actor){
                 System.out.println("Player2Settings pressed.");
-//                game.setScreen(new Player2Settings(game));
+                game.setScreen(new Player2Settings(game));
             }
         });
     }

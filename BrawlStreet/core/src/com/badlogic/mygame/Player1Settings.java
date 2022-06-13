@@ -1,7 +1,6 @@
 package com.badlogic.mygame;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,8 +15,6 @@ public class Player1Settings extends ScreenAdapter {
     private Texture background;
     private TextButton back;
     private TextButton.TextButtonStyle backStyle;
-    private TextButton next;
-    private TextButton.TextButtonStyle nextStyle;
     private GameRunner game;
     private Skin skin;
     private Stage stage;
@@ -61,7 +58,7 @@ public class Player1Settings extends ScreenAdapter {
         game.batch.end();
         stage.draw();
         game.batch.begin();
-        game.batch.draw(player, Gdx.graphics.getWidth()*.15f, Gdx.graphics.getHeight()*.16f);
+        game.batch.draw(player, Gdx.graphics.getWidth()*.15f, Gdx.graphics.getHeight()*.17f);
         game.batch.end();
     }
 }
