@@ -28,10 +28,10 @@ public class SelectionScreen extends ScreenAdapter {
     private OrthographicCamera camera;
     private Skin skin;
     private TextureAtlas buttonAtlas;
-    private ArrayList<String> playerChoice;
-    private ArrayList<String> player2Choice;
+    protected static ArrayList<String> playerChoice;
+    protected static ArrayList<String> player2Choice;
     private Texture gream;
-    private Texture amongusGreen;
+    private Texture AmongUsBlue;
     private Texture horseGreen;
     private Texture bream;
     private Texture amongusBlue;
@@ -73,14 +73,14 @@ public class SelectionScreen extends ScreenAdapter {
         playerChoice = new ArrayList<>();
         player2Choice = new ArrayList<>();
         playerChoice.add("gream");
-        playerChoice.add("amongusGreen");
+        playerChoice.add("AmongUsBlue");
         playerChoice.add("horseGreen");
         player2Choice.add("bream");
         player2Choice.add("amongusBlue");
         player2Choice.add("horseBlue");
         // texture of player1
         gream = new Texture("gream/passive1.png");
-        amongusGreen = new Texture("amongGreen/AGstandp1.png");
+        AmongUsBlue = new Texture("amongGreen/AGstandp1.png");
         horseGreen = new Texture("HorseGreen/HStandp1.png");
         // texture of player2
         bream = new Texture("bream/passive1p2.png");
@@ -141,8 +141,8 @@ public class SelectionScreen extends ScreenAdapter {
         if(playerChoice.get(0).equals("gream")) {
             game.batch.draw(gream, Gdx.graphics.getWidth()*.15f, Gdx.graphics.getHeight()*.1f);
         }
-        else if(playerChoice.get(0).equals("amongusGreen")) {
-            game.batch.draw(amongusGreen, Gdx.graphics.getWidth()*.15f, Gdx.graphics.getHeight()*.1f);
+        else if(playerChoice.get(0).equals("AmongUsBlue")) {
+            game.batch.draw(AmongUsBlue, Gdx.graphics.getWidth()*.15f, Gdx.graphics.getHeight()*.1f);
         }
         else {
             game.batch.draw(horseGreen, Gdx.graphics.getWidth()*.15f, Gdx.graphics.getHeight()*.1f);

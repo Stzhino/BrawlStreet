@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 
-public class Gream extends Sprite {
+public class Bream extends Sprite{
     protected World world;
     protected Body b2body;
     protected enum State {JUMPING, PUNCHING, KICKING, STANDING, DEAD, WALKING, SPECIAL, BLOCK};
@@ -19,9 +19,9 @@ public class Gream extends Sprite {
     private Animation punch;
     private Animation kick;
     private Animation jump;
-    private Texture gream;
+    private Texture bream;
     private float stateTimer;
-    private TextureRegion greamStand;
+    private TextureRegion breamStand;
     private boolean isPunch;
     private boolean isKick;
     protected static boolean isBlock;
@@ -39,42 +39,42 @@ public class Gream extends Sprite {
     private final int specialDamage = 25;
     protected static Rectangle rect;
 
-    public Gream(World world){
+    public Bream(World world){
         this.world = world;
         currentState = State.STANDING;
         pastState = State.STANDING;
         stateTimer = 0;
-        gream = new Texture("gream.png");
+        bream = new Texture("bream.png");
         Array<TextureRegion> frames = new Array<TextureRegion>();
         // shuffling animation frames
-        frames.add(new TextureRegion(gream, 0, 800, 200, 400));
-        frames.add(new TextureRegion(gream, 200, 400, 200, 400));
+        frames.add(new TextureRegion(bream, 0, 800, 200, 400));
+        frames.add(new TextureRegion(bream, 200, 400, 200, 400));
         shuffle = new Animation(.2f, frames);
         frames.clear();
         // punch animation frames
-        frames.add(new TextureRegion(gream, 400, 400, 200, 400));
-        frames.add(new TextureRegion(gream, 600, 400, 200, 400));
-        frames.add(new TextureRegion(gream, 800, 400, 200, 400));
+        frames.add(new TextureRegion(bream, 400, 400, 200, 400));
+        frames.add(new TextureRegion(bream, 600, 400, 200, 400));
+        frames.add(new TextureRegion(bream, 800, 400, 200, 400));
         punch = new Animation(.05f, frames);
         frames.clear();
         // kick animation frames
-        frames.add(new TextureRegion(gream, 600, 0, 200, 400));
-        frames.add(new TextureRegion(gream, 800, 0, 200, 400));
+        frames.add(new TextureRegion(bream, 600, 0, 200, 400));
+        frames.add(new TextureRegion(bream, 800, 0, 200, 400));
         kick = new Animation(.25f, frames);
         frames.clear();
         // jump animation frames
-        frames.add(new TextureRegion(gream, 200, 0, 200, 400));
-        frames.add(new TextureRegion(gream, 400, 0, 200, 400));
+        frames.add(new TextureRegion(bream, 200, 0, 200, 400));
+        frames.add(new TextureRegion(bream, 400, 0, 200, 400));
         jump = new Animation(.05f, frames);
         frames.clear();
         // block
-        block = new TextureRegion(gream,0,0,200,400);
+        block = new TextureRegion(bream,0,0,200,400);
         // special
-        special = new TextureRegion(gream, 200, 800, 200, 400);
+        special = new TextureRegion(bream, 200, 800, 200, 400);
 
-        defineGream();
-        greamStand = new TextureRegion(gream, 0, 400, 200, 400);
-        setRegion(greamStand);
+        defineBream();
+        breamStand = new TextureRegion(bream, 0, 400, 200, 400);
+        setRegion(breamStand);
         setBounds(0, 0, 200, 400);
 
         isKick = false;
@@ -86,9 +86,9 @@ public class Gream extends Sprite {
         specialReady = false;
     }
 
-    public void defineGream(){
+    public void defineBream(){
         FixtureDef fdef = new FixtureDef();
-        rect = new Rectangle(100, 75, 100, 300);
+        rect = new Rectangle(700, 75, 100, 300);
 
         BodyDef bdef = new BodyDef();
         bdef.position.set(rect.getX()+rect.getWidth()/2, rect.getY()+rect.getHeight()/2);
@@ -124,15 +124,15 @@ public class Gream extends Sprite {
                 boolean doDamage = true;
                 if(kick.isAnimationFinished(stateTimer)){
                     Rectangle r = new Rectangle(rect.getX(), rect.getY()+200, 200, 200);
-                    if(r.overlaps(Bream.rect) && doDamage)
+                    if(r.overlaps(Gream.rect) && doDamage)
                     {
-                        if(Bream.isBlock) {
-                            Bream.depleteHp(kickDamage/2);
+                        if(Gream.isBlock) {
+                            Gream.depleteHp(kickDamage/2);
                         }
                         else{
-                            Bream.depleteHp(kickDamage);
+                            Gream.depleteHp(kickDamage);
                         }
-                        Gream.increaseEnergy();
+                        Bream.increaseEnergy();
                     }
                     doDamage = false;
                     resetKick();
@@ -143,15 +143,15 @@ public class Gream extends Sprite {
                 doDamage = true;
                 if(punch.isAnimationFinished(stateTimer)){
                     Rectangle r = new Rectangle(rect.getX(), rect.getY()+200, 200, 200);
-                    if(r.overlaps(Bream.rect) && doDamage)
+                    if(r.overlaps(Gream.rect) && doDamage)
                     {
-                        if(Bream.isBlock) {
-                            Bream.depleteHp(fistDamage/2);
+                        if(Gream.isBlock) {
+                            Gream.depleteHp(fistDamage/2);
                         }
                         else{
-                            Bream.depleteHp(fistDamage);
+                            Gream.depleteHp(fistDamage);
                         }
-                        Gream.increaseEnergy();
+                        Bream.increaseEnergy();
                     }
                     doDamage = false;
                     resetPunch();
@@ -164,10 +164,10 @@ public class Gream extends Sprite {
                 region = special;
                 resetSpecial();
                 break;
-            case DEAD:
             case STANDING:
+            case DEAD:
             default:
-                region = greamStand;
+                region = breamStand;
         }
         stateTimer = currentState == pastState ? stateTimer + dt : 0;
         pastState = currentState;
@@ -247,6 +247,7 @@ public class Gream extends Sprite {
     }
     public static void depleteHp(double d){
         currentHp-=d;
+        System.out.println(currentHp);
     }
     public double getCurrentHp(){
         return currentHp;

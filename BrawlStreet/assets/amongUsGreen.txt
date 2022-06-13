@@ -1,0 +1,68 @@
+AmongUsBlue.png
+size: 900, 1200
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+AGatk1p1
+  rotate: false
+  xy: 0, 0
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+AGatk2p1
+  rotate: false
+  xy: 300, 0
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+AGblockp1
+  rotate: false
+  xy: 600, 0
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+AGgun1p1
+  rotate: false
+  xy: 0, 400
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+AGgun2p1
+  rotate: false
+  xy: 300, 400
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+AGshufflep1
+  rotate: false
+  xy: 600, 400
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+AGspecialBoomp1
+  rotate: false
+  xy: 0, 800
+  size: 258, 149
+  orig: 258, 149
+  offset: 0, 0
+  index: -1
+AGspecialp1
+  rotate: false
+  xy: 258, 800
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+AGstandp1
+  rotate: false
+  xy: 558, 800
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1

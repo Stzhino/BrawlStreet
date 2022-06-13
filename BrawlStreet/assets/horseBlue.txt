@@ -1,0 +1,68 @@
+horseBlue.png
+size: 900, 1200
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+HBlockp2
+  rotate: false
+  xy: 0, 0
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+HKick1p2
+  rotate: false
+  xy: 300, 0
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+HKick2p2
+  rotate: false
+  xy: 600, 0
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+HPunch1p2
+  rotate: false
+  xy: 0, 400
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+HPunch2p2
+  rotate: false
+  xy: 300, 400
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+HShufflep2
+  rotate: false
+  xy: 600, 400
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+HSpecial1p2
+  rotate: false
+  xy: 0, 800
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+HSpecial2p2
+  rotate: false
+  xy: 300, 800
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1
+HStandp2
+  rotate: false
+  xy: 600, 800
+  size: 300, 400
+  orig: 300, 400
+  offset: 0, 0
+  index: -1

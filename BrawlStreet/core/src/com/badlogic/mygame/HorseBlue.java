@@ -8,8 +8,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
-
-public class Gream extends Sprite {
+public class HorseBlue extends Sprite{
     protected World world;
     protected Body b2body;
     protected enum State {JUMPING, PUNCHING, KICKING, STANDING, DEAD, WALKING, SPECIAL, BLOCK};
@@ -19,15 +18,15 @@ public class Gream extends Sprite {
     private Animation punch;
     private Animation kick;
     private Animation jump;
-    private Texture gream;
+    private Texture horse;
     private float stateTimer;
-    private TextureRegion greamStand;
+    private TextureRegion horseStand;
     private boolean isPunch;
     private boolean isKick;
     protected static boolean isBlock;
     private boolean isSpecial;
     private TextureRegion block;
-    private TextureRegion special;
+    private Animation special;
 
     private final double maxHp = 100;
     private static double currentHp;
@@ -39,43 +38,43 @@ public class Gream extends Sprite {
     private final int specialDamage = 25;
     protected static Rectangle rect;
 
-    public Gream(World world){
+    public HorseBlue(World world){
         this.world = world;
         currentState = State.STANDING;
         pastState = State.STANDING;
         stateTimer = 0;
-        gream = new Texture("gream.png");
+        horse = new Texture("horseBlue.png");
         Array<TextureRegion> frames = new Array<TextureRegion>();
         // shuffling animation frames
-        frames.add(new TextureRegion(gream, 0, 800, 200, 400));
-        frames.add(new TextureRegion(gream, 200, 400, 200, 400));
+        frames.add(new TextureRegion(horse, 600, 800, 300, 400));
+        frames.add(new TextureRegion(horse, 600, 400, 300, 400));
         shuffle = new Animation(.2f, frames);
         frames.clear();
-        // punch animation frames
-        frames.add(new TextureRegion(gream, 400, 400, 200, 400));
-        frames.add(new TextureRegion(gream, 600, 400, 200, 400));
-        frames.add(new TextureRegion(gream, 800, 400, 200, 400));
+        // atk animation frames
+        frames.add(new TextureRegion(horse, 0, 400, 300, 400));
+        frames.add(new TextureRegion(horse, 300, 400, 300, 400));
         punch = new Animation(.05f, frames);
         frames.clear();
         // kick animation frames
-        frames.add(new TextureRegion(gream, 600, 0, 200, 400));
-        frames.add(new TextureRegion(gream, 800, 0, 200, 400));
+        frames.add(new TextureRegion(horse, 300, 0, 300, 400));
+        frames.add(new TextureRegion(horse, 600, 0, 300, 400));
         kick = new Animation(.25f, frames);
         frames.clear();
         // jump animation frames
-        frames.add(new TextureRegion(gream, 200, 0, 200, 400));
-        frames.add(new TextureRegion(gream, 400, 0, 200, 400));
+        frames.add(new TextureRegion(horse, 300, 0, 300, 400));
         jump = new Animation(.05f, frames);
         frames.clear();
         // block
-        block = new TextureRegion(gream,0,0,200,400);
+        block = new TextureRegion(horse,0,0,300,400);
         // special
-        special = new TextureRegion(gream, 200, 800, 200, 400);
+        frames.add(new TextureRegion(horse, 0, 800, 300, 400));
+        frames.add(new TextureRegion(horse, 300, 800, 300, 400));
+        special = new Animation(.1f, frames);
 
-        defineGream();
-        greamStand = new TextureRegion(gream, 0, 400, 200, 400);
-        setRegion(greamStand);
-        setBounds(0, 0, 200, 400);
+        defineHorse();
+        horseStand = new TextureRegion(horse, 600, 800, 300, 400);
+        setRegion(horseStand);
+        setBounds(0, 0, 300, 400);
 
         isKick = false;
         isPunch = false;
@@ -86,9 +85,9 @@ public class Gream extends Sprite {
         specialReady = false;
     }
 
-    public void defineGream(){
+    public void defineHorse(){
         FixtureDef fdef = new FixtureDef();
-        rect = new Rectangle(100, 75, 100, 300);
+        rect = new Rectangle(700, 75, 150, 400);
 
         BodyDef bdef = new BodyDef();
         bdef.position.set(rect.getX()+rect.getWidth()/2, rect.getY()+rect.getHeight()/2);
@@ -124,15 +123,41 @@ public class Gream extends Sprite {
                 boolean doDamage = true;
                 if(kick.isAnimationFinished(stateTimer)){
                     Rectangle r = new Rectangle(rect.getX(), rect.getY()+200, 200, 200);
-                    if(r.overlaps(Bream.rect) && doDamage)
-                    {
-                        if(Bream.isBlock) {
-                            Bream.depleteHp(kickDamage/2);
+                    if(SelectionScreen.playerChoice.get(0).equals("gream")){
+                        if(r.overlaps(Gream.rect) && doDamage)
+                        {
+                            if(Gream.isBlock) {
+                                Gream.depleteHp(kickDamage/2);
+                            }
+                            else{
+                                Gream.depleteHp(kickDamage);
+                            }
+                            HorseBlue.increaseEnergy();
                         }
-                        else{
-                            Bream.depleteHp(kickDamage);
+                    }
+                    else if(SelectionScreen.playerChoice.get(0).equals("amongusGreen")){
+                        if (r.overlaps(AmongUsGreen.rect) && doDamage)
+                        {
+                            if(AmongUsGreen.isBlock) {
+                                AmongUsGreen.depleteHp(kickDamage/2);
+                            }
+                            else{
+                                AmongUsGreen.depleteHp(kickDamage);
+                            }
+                            HorseBlue.increaseEnergy();
                         }
-                        Gream.increaseEnergy();
+                    }
+                    else {
+                        if (r.overlaps(HorseGreen.rect) && doDamage)
+                        {
+                            if(HorseGreen.isBlock) {
+                                HorseGreen.depleteHp(kickDamage/2);
+                            }
+                            else{
+                                HorseGreen.depleteHp(kickDamage);
+                            }
+                            HorseBlue.increaseEnergy();
+                        }
                     }
                     doDamage = false;
                     resetKick();
@@ -143,15 +168,41 @@ public class Gream extends Sprite {
                 doDamage = true;
                 if(punch.isAnimationFinished(stateTimer)){
                     Rectangle r = new Rectangle(rect.getX(), rect.getY()+200, 200, 200);
-                    if(r.overlaps(Bream.rect) && doDamage)
-                    {
-                        if(Bream.isBlock) {
-                            Bream.depleteHp(fistDamage/2);
+                    if(SelectionScreen.playerChoice.get(0).equals("gream")){
+                        if(r.overlaps(Gream.rect) && doDamage)
+                        {
+                            if(Gream.isBlock) {
+                                Gream.depleteHp(fistDamage/2);
+                            }
+                            else{
+                                Gream.depleteHp(fistDamage);
+                            }
+                            HorseBlue.increaseEnergy();
                         }
-                        else{
-                            Bream.depleteHp(fistDamage);
+                    }
+                    else if(SelectionScreen.playerChoice.get(0).equals("amongusGreen")){
+                        if (r.overlaps(AmongUsGreen.rect) && doDamage)
+                        {
+                            if(AmongUsGreen.isBlock) {
+                                AmongUsGreen.depleteHp(fistDamage/2);
+                            }
+                            else{
+                                AmongUsGreen.depleteHp(fistDamage);
+                            }
+                            HorseBlue.increaseEnergy();
                         }
-                        Gream.increaseEnergy();
+                    }
+                    else {
+                        if (r.overlaps(HorseGreen.rect) && doDamage)
+                        {
+                            if(HorseGreen.isBlock) {
+                                HorseGreen.depleteHp(fistDamage/2);
+                            }
+                            else{
+                                HorseGreen.depleteHp(fistDamage);
+                            }
+                            HorseBlue.increaseEnergy();
+                        }
                     }
                     doDamage = false;
                     resetPunch();
@@ -161,13 +212,14 @@ public class Gream extends Sprite {
                 region = block;
                 break;
             case SPECIAL:
-                region = special;
-                resetSpecial();
+                region = (TextureRegion) special.getKeyFrame(stateTimer);
+                if(special.isAnimationFinished(stateTimer))
+                    resetSpecial();
                 break;
-            case DEAD:
             case STANDING:
+            case DEAD:
             default:
-                region = greamStand;
+                region = horseStand;
         }
         stateTimer = currentState == pastState ? stateTimer + dt : 0;
         pastState = currentState;
